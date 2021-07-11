@@ -1,0 +1,40 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION (('ViewDefinition []'), '2;1');
+FILE_NAME ('UT_RSS_1_reference.ifc', '2021-01-20T15:32:13', (), (), 'Technical Service', (), $);
+FILE_SCHEMA (('IFC4X3_RC4'));
+ENDSEC;
+DATA;
+
+/*This file is a reference file fot UT_RSS_1 and, as such, has only the sections relevant for this UT. Placement, geometry and other info that is not shown is irrelevant.*/
+
+/*project declaration*/
+#7 = IFCPROJECT('2hboQYeXTCRBt5F9zaTBJ0', $, 'RSS1 - Single Domain Spatial Structure', $, $, $, $, $,$);
+#74 = IFCRELAGGREGATES('2Ce9DomVL0ze3WKRfVpEWf', $, 'Project Container', 'Project to Spatial Element', #7, (#21));
+
+/*Railway spatial structure elements*/
+#21 = IFCRAILWAY('1PeXhFd$bFXu14703gdrG4', $, 'Rome-Naples Network', $, $, $, $, $, .COMPLEX., $);
+#26 = IFCRAILWAY('0vAC5xUKz23gNpXJsGB7KS', $, 'Rome', $, $, $, $, $, .PARTIAL., $);
+#31 = IFCFACILITYPART('1sXHWb3cvD1fvx5F15bhsN', $, 'T1', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.TRACKSTRUCTUREPART.), .LONGITUDINAL.);
+#36 = IFCFACILITYPART('0bJKfAsq10c9vK7IuDyYpj', $, 'T2', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.TRACKSTRUCTUREPART.), .LONGITUDINAL.);
+#41 = IFCFACILITYPART('2IizddZTvFzvD3bMv7LOH_', $, 'T3', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.TRACKSTRUCTUREPART.), .LONGITUDINAL.);
+#46 = IFCFACILITYPART('3uIGpeo8H5MgFrXfEphoRM', $, 'Sidewalk1', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.LINESIDESTRUCTUREPART.), .LATERAL.);
+#51 = IFCFACILITYPART('3ujlzHOejCV9Z0j_5K26d7', $, 'Sidewalk2', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.LINESIDESTRUCTUREPART.), .LATERAL.);
+#57 = IFCRAILWAY('0iKde6wODF1wCr11If8EzN', $, 'Railway Line', $, $, $, $, $, .PARTIAL., $);
+#62 = IFCFACILITYPART('2oxywfsrP6tRmyYgH6V2aq', $, 'T1', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.TRACKSTRUCTUREPART.), .LONGITUDINAL.);
+#67 = IFCFACILITYPART('3w94jIVhP5tAAQ1L$1_V5b', $, 'T2', $, $, $, $, $, .ELEMENT., IFCRAILWAYPARTTYPEENUM(.TRACKSTRUCTUREPART.), .LONGITUDINAL.);
+
+/*Spatial Structure Decomposition*/
+#56 = IFCRELAGGREGATES('3BgLAa9lH0V9TltKPNMHmR', $, 'Facility Container', 'Facility to Facility Parts(s)', #26, (#31, #36, #41, #46, #51));
+#72 = IFCRELAGGREGATES('1XCUR3tczCYP0VqVbJcy28', $, 'Facility Container', 'Facility to Facility Parts(s)', #57, (#62, #67));
+#73 = IFCRELAGGREGATES('35wxIQSevATwfnw3AVrmh3', $, 'Facility Part', 'Facility to Part(s)', #21, (#26, #57));
+
+
+/*Interference: spatial zone*/
+#75 = IFCSPATIALZONE('2Z8WhkkPD1lemSmhCc5xBP', $, 'Interference Area', $, $, $, $, $, $);
+#80 = IFCRELREFERENCEDINSPATIALSTRUCTURE('1kTGE$Hi12sAtq8NoMShM9', $, 'Reference relationship', $, (#75), #57);
+#81 = IFCRELINTERFERESELEMENTS('2FN6pVg7b92B41ixlvHL_A', $, $, $, #75, #62, $, 'PassesUnder', .U.);
+#82 = IFCRELINTERFERESELEMENTS('1A$Qq0YuH3WQGCbZ6MIMbX', $, $, $, #75, #67, $, 'PassesUnder', .U.);
+
+ENDSEC;
+END-ISO-10303-21;
