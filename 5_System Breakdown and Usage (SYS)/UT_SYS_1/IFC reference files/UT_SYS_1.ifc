@@ -1,0 +1,48 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ViewDefinition [CoordinationView]'),'2;1');
+FILE_NAME('','2021-01-22T14:48:31',(),(),'IfcOpenShell 0.6.0b0','IfcOpenShell 0.6.0b0','');
+FILE_SCHEMA(('IFC4X3_RC3'));
+ENDSEC;
+DATA;
+
+/*Genral Owner history*/
+#1=IFCORGANIZATION($,'Railenium',$,$,$);
+#2=IFCAPPLICATION(#1,'0.6','IfcOpenShell','IFCOS');
+#3=IFCPERSON('Sylvain MARIE','MARIE','Sylvain',$,$,$,$,$);
+#4=IFCPERSONANDORGANIZATION(#3,#1,$);
+#5=IFCOWNERHISTORY(#4,#2,$,$,$,$,$,1611323311);
+
+/*Project declaration*/
+#6=IFCPROJECT('23jlUeNBWHwwpaf5vWqJXt',#5,'UT_SYS_1',$,$,$,$,$,$);
+#8=IFCRELAGGREGATES('23jmKYNBWHwwpaf5vWqJXt',#5,'Project Container',$,#6,(#7));
+#27=IFCRELDECLARES('23js5mNBWHwwpaf5vWqJXt',#5,'Project references',$,#6,(#16,#17,#18,#19,#20,#21));
+
+/* Spatial Structure*/
+#7=IFCRAILWAY('23jl$wNBWHwwpaf5vWqJXt',#5,'TLC Node',$,$,$,$,$,$,$);
+/*Elements contained in spatial structure*/
+#9=IFCBUILTELEMENT('23jmjONBWHwwpaf5vWqJXt',#5,'Cable 02',$,$,$,$,$);
+#10=IFCBUILTELEMENT('23jm$gNBWHwwpaf5vWqJXt',#5,'Cable 03',$,$,$,$,$);
+#11=IFCBUILTELEMENT('23jnGsNBWHwwpaf5vWqJXt',#5,'Access Network 01',$,$,$,$,$);
+#12=IFCBUILTELEMENT('23jnWeNBWHwwpaf5vWqJXt',#5,'IP Network equipment 01',$,$,$,$,$);
+#13=IFCBUILTELEMENT('23jnlUNBWHwwpaf5vWqJXt',#5,'IP Network equipment 02',$,$,$,$,$);
+#14=IFCBUILTELEMENT('23jn_eNBWHwwpaf5vWqJXt',#5,'Antenna 01',$,$,$,$,$);
+#15=IFCRELCONTAINEDINSPATIALSTRUCTURE('23joEGNBWHwwpaf5vWqJXt',#5,'Railway Container',$,(#9,#10,#11,#12,#13,#14),#7);
+
+/*Groups*/
+#16=IFCGROUP('23joYGNBWHwwpaf5vWqJXt',#5,'Sistemi Radio Frequenza',$,$);
+#17=IFCGROUP('23jopcNBWHwwpaf5vWqJXt',#5,'Aggregatore Stazioni Radio Base',$,$);
+#18=IFCASSET('23jp1qNBWHwwpaf5vWqJXt',#5,'Impianto radiomobile 01',$,$,$,$,$,$,$,$,$,$,$);
+#19=IFCASSET('23jpGMNBWHwwpaf5vWqJXt',#5,'Impianto radiomobile 02',$,$,$,$,$,$,$,$,$,$,$);
+#20=IFCSYSTEM('23jpaCNBWHwwpaf5vWqJXt',#5,'Base Station controller (BSC)',$,$);
+#21=IFCSYSTEM('23jpokNBWHwwpaf5vWqJXt',#5,'Stazione Radio Base (BTS)',$,$);
+/*Group assignment*/
+#22=IFCRELASSIGNSTOGROUP('23jq0yNBWHwwpaf5vWqJXt',#5,$,$,(#18,#19),$,#16);
+#23=IFCRELASSIGNSTOGROUP('23jqImNBWHwwpaf5vWqJXt',#5,$,$,(#11,#12,#20,#21),$,#18);
+#24=IFCRELASSIGNSTOGROUP('23jqkaNBWHwwpaf5vWqJXt',#5,$,$,(#9),$,#20);
+#25=IFCRELASSIGNSTOGROUP('23jr2kNBWHwwpaf5vWqJXt',#5,$,$,(#10,#13,#14),$,#21);
+#26=IFCRELASSIGNSTOGROUP('23jrXgNBWHwwpaf5vWqJXt',#5,$,$,(#21),$,#17);
+
+
+ENDSEC;
+END-ISO-10303-21;
